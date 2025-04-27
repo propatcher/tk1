@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>VueApp</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container py-5">
+            <section class="py-3">
+                <h3 class="mb-3">Отрисовка</h3>
+                <p>Первое приложение на <b>{{ courseName }}</b> Разработал {{ userName }}</p>
+            </section>
+            
+            <section class="py-3">
+                <h3 class="mb-3">Список</h3>
+                <ul class="mb-3">
+                    <li v-for="(task, index) in tasks">{{ index + 1 }} - {{ task }}</li>
+                </ul>
+                <button class="btn btn-primary" @click="addTask">Добавить задачу</button>
+            </section>
+            
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">Текстовое поле</div>
+                        <div class="card-body">
+                            <input type="text" class="form-control mb-3" v-model="forms.input1">
+                            <span>Вы ввели: <b>{{ forms.input1}}</b></span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">Многостраничное текстовое поле</div>
+                <div class="card-body">
+                    <textarea class="form-control mb-3" value="Тут можно писать много текста" v-model="forms.input2"></textarea>
+                    <span>Вы ввели: <b>{{ forms.input2}}</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">Опции</div>
+                <div class="card-body">
+                    <div class="form-check">
+                        <label>
+                            <input type="checkbox" class="form-check-input" value = "Опция 1" v-model = "forms.checkboxes"> Опция 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label>
+                        <input type="checkbox" class="form-check-input" value = "Опция 2" v-model = "forms.checkboxes"> Опция 2 
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label>
+                            <input type="checkbox" class="form-check-input" value = "Опция 3" v-model = "forms.checkboxes"> Опция 3
+                        </label>
+                    </div>
+                    <span>Вы выбрали опции: <b>{{ forms.checkboxes.join(', ') }}</b></span>
+                </div>
+            </div>
+    </div>
+    <div class="col-sm-12 py-3">
+        <div class="card">
+            <div class="card-header">Опции</div>
+            <div class="card-body">
+                <select class ="form-control" v-model = "forms.select">
+                    <option value ="value1">Значение 1</option>
+                    <option value ="value2">Значение 2</option>
+                    <option value ="value3">Значение 3</option>
+                </select>
+                <span>Вы выбрали: <b>{{forms.select}}</b></span>
+            </div>
+            <div>
+                <img v-bind:src="attr" width="400">
+            </div>
+             </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
