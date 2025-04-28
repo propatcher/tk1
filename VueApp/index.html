@@ -18,9 +18,13 @@
             <section class="py-3">
                 <h3 class="mb-3">Список</h3>
                 <ul class="mb-3">
-                    <li v-for="(task, index) in tasks">{{ index }} - {{ task }}</li>
+                    <li v-for="(task, index) in tasks">{{ index + 1}} - {{ task }}</li>
                 </ul>
                 <button class="btn btn-primary" @click="addTask">Добавить задачу</button>
+                <button class="btn btn-primary" @click="removeTask">Удалить последний элемент</button>
+                <button class="btn btn-primary" @click="addZero">Добавить задачу 0</button>
+                <button class="btn btn-primary" @click="removeSecond">Заменить задачу 2</button>
+                
             </section>
             
             <div class="row mt-4">
@@ -82,6 +86,80 @@
                 <img v-bind:src="attr" width="400">
             </div>
              </div>
+        </div>
+    </div>
+</div>
+    <div class="col-sm-6 py-3">
+        <h3 class="mb-3">События</h3>
+        <div class="card">
+            <div class="card-header">Элементы управления</div>
+            <div class="card-body">
+                <button class = "btn btn-primary" @click.prevent="clickByButton">Кнопка</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 py-3">
+        <div class="card">
+            <div class="card-header">Форма</div>
+            <div class="card-body">
+                <form>
+                    <input type="text" class="form-control mb-3" placeholder="Login">
+                    <input type="text" class="form-control mb-3" placeholder="Pas: ">
+                    <button class="btn btn-primary" @click.prevent="formSubmited">Кнопка</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 py-3">
+            <div class="card">
+                <div class="card-header">Демонстрация</div>
+                <div class="card-body">
+                    <input type="text" :placeholder="demoInput.placeholder" :disabled="demoInput.disabled" :class="demoInput.classes">
+                </div>
+            </div>
+    </div>
+    <div class="col-sm-6 py-3">
+        <h3 class="mb-3">Атрибуты</h3>
+        <div class="card">
+            <div class="card-header">Работа с атрибутами</div>
+            <div class="card-body">
+                <label class="mb-3">
+                    <input type="checkbox"   v-model="demoInput.disabled"> Заблокировать поле ввода
+                </label>
+                <div class="mb-3">
+                    <input type="text" class="form-control mb-3" v-model="demoInput.placeholder" placeholder="Укажите placeholder">
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "form-control" > form-control
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "bg-primary" > bg-primary
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "text-white" > text-white
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "mt-5" > mt-5
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "mb-5" > mb-5
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                    <input type="checkbox" class="form-check-input" value = "shadow-1g" > shadow-1g
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-const { createApp } = Vue;  
+    const { createApp } = Vue;  
         
 createApp({
     data() {
@@ -16,12 +16,32 @@ createApp({
                 checkboxes:[],
                 select:null
             },
-            attr: "img.jpg"
+            attr: "img.jpg",
+            demoInput: {
+                disabled: false,
+                placeholder: 'Новый placeholder',
+                classes: []
+            }
         };
     },
     methods: {
         addTask() {
             this.tasks.push(`Задача ${this.tasks.length + 1}`);
+        },
+        removeTask() {  
+            this.tasks.pop();
+        },
+        addZero(){
+            this.tasks.unshift('Задача 0');
+        },
+        removeSecond(){
+            this.tasks.splice(1,1,'Пункт 2');
+        },
+        clickByButton() {
+            alert('Вы нажали на кнопку!')
+        },
+        formSubmited() {
+            alert('Вы отправили форму')
         }
     }
 }).mount('#app');
